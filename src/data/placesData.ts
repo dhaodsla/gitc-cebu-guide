@@ -771,8 +771,8 @@ export const PLACES_DATA: PlaceItem[] = [
     id: 'aa-bbq-soong',
     nameKo: 'AA BBQ (숭 지점)',
     nameEn: 'AA BBQ Soong Branch',
-    googlePlaceId: 'ChIJ329eZeaXqTMRTToj57KFpxw', // In Soong barangay near campus
-    placeVerificationStatus: 'verified',
+    googlePlaceId: '',
+    placeVerificationStatus: 'needs_review',
     category: 'local_food',
     subCategory: '로컬 시푸드 & 포크 BBQ',
     area: '막탄(뉴타운/마리바고)',
@@ -795,11 +795,9 @@ export const PLACES_DATA: PlaceItem[] = [
     recommendedMenu: ['포크 바비큐 꼬치', '오징어 통구이 (Grilled Squid)', '참치 턱살 구이', '갈릭 라이스'],
     highlights: ['GITC 캠퍼스 도보/차량 2분', '현지 물가의 착한 가격', '숯불 직화 구이'],
     badges: ['LOCAL_PICK', 'GITC_PICK'],
-    photoSource: 'google',
-    googleRating: 4.4,
-    googleReviewCount: 450,
-    openingHours: '매일 11:00 ~ 22:00',
-    phone: '+63 32 495 5567',
+    photoSource: 'category-placeholder',
+    openingHours: '정보 확인 필요',
+    phone: '정보 확인 필요',
     lastVerified: '2026-10-01',
     active: true,
   },
@@ -807,8 +805,8 @@ export const PLACES_DATA: PlaceItem[] = [
     id: 'entoys-bakasihan',
     nameKo: '엔토이 바카시한',
     nameEn: "Entoy's Bakasihan",
-    googlePlaceId: 'ChIJJWa9pFWaqTMR82amTKMxo7Q',
-    placeVerificationStatus: 'verified',
+    googlePlaceId: '',
+    placeVerificationStatus: 'needs_review',
     category: 'local_food',
     subCategory: '넷플릭스 방영 코르도바 장어탕',
     area: '코르도바',
@@ -831,10 +829,8 @@ export const PLACES_DATA: PlaceItem[] = [
     recommendedMenu: ['바카시(Baksi, 바다장어 맑은탕)', '장어 튀김', '푸소(야자잎 밥)'],
     highlights: ['넷플릭스 공식 소개 맛집', '코르도바 해안선 풍경', '진한 바다의 맛'],
     badges: ['LOCAL_PICK'],
-    photoSource: 'google',
-    googleRating: 4.3,
-    googleReviewCount: 920,
-    openingHours: '매일 09:00 ~ 19:00',
+    photoSource: 'category-placeholder',
+    openingHours: '정보 확인 필요',
     phone: '정보 확인 필요',
     lastVerified: '2026-10-01',
     active: true,
@@ -1592,8 +1588,8 @@ export const PLACES_DATA: PlaceItem[] = [
     id: 'mercury-drug-mactan',
     nameKo: '머큐리 드럭 (24시간 약국)',
     nameEn: 'Mercury Drug Mactan',
-    googlePlaceId: 'ChIJObSpifiZqTMRNyIlcafgPYQ',
-    placeVerificationStatus: 'verified',
+    googlePlaceId: '',
+    placeVerificationStatus: 'needs_review',
     category: 'emergency',
     emergencyCategory: 'pharmacy',
     isEmergency24hr: true,
@@ -1613,11 +1609,9 @@ export const PLACES_DATA: PlaceItem[] = [
     },
     highlights: ['24시간 영업', '정품 의약품 보장', '전문 약사 상주'],
     badges: ['GITC_PICK'],
-    photoSource: 'google',
-    googleRating: 4.4,
-    googleReviewCount: 210,
-    openingHours: '24시간 연중무휴',
-    phone: '+63 32 340 0555',
+    photoSource: 'category-placeholder',
+    openingHours: '24시간 (정보 확인 필요)',
+    phone: '정보 확인 필요',
     lastVerified: '2026-10-01',
     active: true,
   },
@@ -1625,8 +1619,8 @@ export const PLACES_DATA: PlaceItem[] = [
     id: 'korean-consulate-cebu',
     nameKo: '주 세부 대한민국 분관',
     nameEn: 'Consulate of the Republic of Korea in Cebu',
-    googlePlaceId: 'ChIJa9Ru7kCZqTMRxxXvO_Ddfb0',
-    placeVerificationStatus: 'verified',
+    googlePlaceId: '',
+    placeVerificationStatus: 'needs_review',
     category: 'emergency',
     emergencyCategory: 'consulate',
     subCategory: '대한민국 재외공관 (영사관)',
@@ -1645,11 +1639,9 @@ export const PLACES_DATA: PlaceItem[] = [
     },
     highlights: ['한국인 공무원 상주', '24시간 긴급 당직 전화 운용', '아얄라 몰 도보 3분'],
     badges: ['GITC_PICK'],
-    photoSource: 'google',
-    googleRating: 4.8,
-    googleReviewCount: 95,
-    openingHours: '월~금 08:30 ~ 17:00 (사건사고 24시간 긴급당직)',
-    phone: '+63 917 808 3907',
+    photoSource: 'category-placeholder',
+    openingHours: '월~금 08:30 ~ 17:00 (정보 확인 필요)',
+    phone: '+63 32 231 1516 (긴급: +63 917 808 3907)',
     lastVerified: '2026-10-01',
     active: true,
   },
@@ -1657,8 +1649,8 @@ export const PLACES_DATA: PlaceItem[] = [
     id: 'lapu-lapu-police',
     nameKo: '라푸라푸 경찰서',
     nameEn: 'Lapu-Lapu City Police Station',
-    googlePlaceId: 'ChIJ329eZeaXqTMRTToj57KFpxw',
-    placeVerificationStatus: 'verified',
+    googlePlaceId: '',
+    placeVerificationStatus: 'needs_review',
     category: 'emergency',
     emergencyCategory: 'police',
     isEmergency24hr: true,
@@ -1678,11 +1670,9 @@ export const PLACES_DATA: PlaceItem[] = [
     },
     highlights: ['24시간 운영', '외국인 관광경찰팀 상주', '긴급 핫라인 지원'],
     badges: ['GITC_PICK'],
-    photoSource: 'google',
-    googleRating: 3.8,
-    googleReviewCount: 140,
-    openingHours: '24시간 연중무휴',
-    phone: '+63 32 340 0252',
+    photoSource: 'category-placeholder',
+    openingHours: '24시간 (정보 확인 필요)',
+    phone: '정보 확인 필요',
     lastVerified: '2026-10-01',
     active: true,
   },
@@ -1690,8 +1680,8 @@ export const PLACES_DATA: PlaceItem[] = [
     id: 'metro-supermarket-lg',
     nameKo: '메트로 슈퍼마켓 (LG 가든워크점)',
     nameEn: 'Metro Supermarket LG Garden Walk',
-    googlePlaceId: 'ChIJwQ1mo0SZqTMR86c0nEdkHks',
-    placeVerificationStatus: 'verified',
+    googlePlaceId: '',
+    placeVerificationStatus: 'needs_review',
     category: 'shopping',
     emergencyCategory: 'market',
     subCategory: '대형 식자재 마트 & 생활필수품',
@@ -1710,12 +1700,57 @@ export const PLACES_DATA: PlaceItem[] = [
     },
     highlights: ['깨끗한 정찰제 가격', 'LG 가든워크 지하 주차장', '카드 결제 가능'],
     badges: ['GITC_PICK', 'FAMILY_PICK'],
-    photoSource: 'google',
-    googleRating: 4.5,
-    googleReviewCount: 1600,
-    openingHours: '매일 08:00 ~ 21:00',
-    phone: '+63 32 342 8899',
+    photoSource: 'category-placeholder',
+    openingHours: '정보 확인 필요',
+    phone: '정보 확인 필요',
     lastVerified: '2026-10-01',
     active: true,
   },
 ];
+
+/**
+ * Validates PLACES_DATA for duplicate googlePlaceIds and logs warnings/errors.
+ * - Allows the exact same place (same ID) to be referenced across categories.
+ * - Disallows distinct places sharing the same googlePlaceId.
+ */
+export function validatePlacesData(places: PlaceItem[]) {
+  const map = new Map<string, { id: string; nameKo: string }[]>();
+  let needsReviewCount = 0;
+  let verifiedCount = 0;
+
+  for (const place of places) {
+    if (place.placeVerificationStatus === 'needs_review') {
+      needsReviewCount++;
+    } else {
+      verifiedCount++;
+    }
+
+    if (place.googlePlaceId && place.googlePlaceId.trim().length > 0) {
+      const existing = map.get(place.googlePlaceId) || [];
+      existing.push({ id: place.id, nameKo: place.nameKo });
+      map.set(place.googlePlaceId, existing);
+    }
+  }
+
+  const duplicates: { googlePlaceId: string; places: { id: string; nameKo: string }[] }[] = [];
+  map.forEach((list, gpid) => {
+    const distinctIds = new Set(list.map((p) => p.id));
+    if (distinctIds.size > 1) {
+      duplicates.push({ googlePlaceId: gpid, places: list });
+      console.warn(
+        `[PLACES_DATA Duplicate Error] Multiple distinct places share googlePlaceId "${gpid}":`,
+        list.map((p) => `${p.nameKo} (${p.id})`).join(', ')
+      );
+    }
+  });
+
+  return {
+    duplicates,
+    duplicateCount: duplicates.length,
+    needsReviewCount,
+    verifiedCount,
+    totalPlaces: places.length,
+  };
+}
+
+export const PLACES_VALIDATION_RESULT = validatePlacesData(PLACES_DATA);

@@ -8,7 +8,8 @@ import { PlaceItem, PhotoSource } from '../types/guide';
 import { getCategoryPlaceholder } from './categoryPlaceholders';
 import { PRE_RESOLVED_GOOGLE_PHOTOS } from '../data/googlePlacePhotos';
 
-const STORAGE_CACHE_KEY = 'gitc_cebu_google_photos_v1';
+const OLD_STORAGE_CACHE_KEY = 'gitc_cebu_google_photos_v1';
+const STORAGE_CACHE_KEY = 'gitc_cebu_google_photos_v2';
 
 // In-memory runtime cache initialized from pre-resolved real Google Maps photos
 const memoryPhotoCache = new Map<string, string>();
@@ -23,6 +24,8 @@ Object.entries(PRE_RESOLVED_GOOGLE_PHOTOS).forEach(([placeId, url]) => {
 // Load any persisted client cache from localStorage
 if (typeof window !== 'undefined') {
   try {
+    // Invalidate stale v1 cache
+    localStorage.removeItem(OLD_STORAGE_CACHE_KEY);
     const raw = localStorage.getItem(STORAGE_CACHE_KEY);
     if (raw) {
       const parsed = JSON.parse(raw);
@@ -59,7 +62,7 @@ export interface ResolvedPhoto {
 /**
  * Synchronous photo resolution following the strict priority rules:
  * 1. customImage (admin/partner registered real image)
- * 2. Google Places API real place photo (via Place ID)
+ * 2. Google Places API real place photo (ONLY IF placeVerificationStatus === 'verified')
  * 3. category-placeholder (clean vector graphic placeholder, never fake AI)
  */
 export function resolvePlacePhotoSync(place: PlaceItem): ResolvedPhoto {
@@ -72,14 +75,21 @@ export function resolvePlacePhotoSync(place: PlaceItem): ResolvedPhoto {
     };
   }
 
-  // 2nd Priority: Google Places real photo from cache
-  if (place.googlePlaceId && memoryPhotoCache.has(place.googlePlaceId)) {
-    const googleUrl = memoryPhotoCache.get(place.googlePlaceId)!;
-    return {
-      url: googleUrl,
-      source: 'google',
-      isPlaceholder: false,
-    };
+  // 2nd Priority: Google Places real photo ONLY IF verified and exists in cache
+  if (
+    place.placeVerificationStatus === 'verified' &&
+    place.googlePlaceId &&
+    place.googlePlaceId.trim().length > 0 &&
+    memoryPhotoCache.has(place.googlePlaceId)
+  ) {
+    const googleUrl = memoryPhotoCache.get(place.googlePlaceId);
+    if (googleUrl && googleUrl.trim().length > 0) {
+      return {
+        url: googleUrl,
+        source: 'google',
+        isPlaceholder: false,
+      };
+    }
   }
 
   // 3rd Priority: Category placeholder
@@ -108,14 +118,20 @@ export function usePlacePhoto(place: PlaceItem): {
     const initial = resolvePlacePhotoSync(place);
     setPhotoInfo(initial);
 
-    // If already has customImage or cached Google photo, no async fetch needed
-    if (initial.source === 'custom' || initial.source === 'google') {
+    // If place is needs_review or already has customImage or cached Google photo, no async fetch needed
+    if (
+      place.placeVerificationStatus !== 'verified' ||
+      !place.googlePlaceId ||
+      initial.source === 'custom' ||
+      initial.source === 'google'
+    ) {
       return;
     }
 
-    // Attempt client-side Google PlacesService fetch if googlePlaceId is available
+    // Attempt client-side Google PlacesService fetch only for verified places
     const win = typeof window !== 'undefined' ? (window as unknown as { google?: any }) : null;
     if (
+      place.placeVerificationStatus === 'verified' &&
       place.googlePlaceId &&
       win?.google?.maps?.places
     ) {
@@ -144,6 +160,12 @@ export function usePlacePhoto(place: PlaceItem): {
                   isPlaceholder: false,
                 });
               }
+            } else {
+              setPhotoInfo({
+                url: getCategoryPlaceholder(place.category),
+                source: 'category-placeholder',
+                isPlaceholder: true,
+              });
             }
           }
         );
@@ -151,7 +173,7 @@ export function usePlacePhoto(place: PlaceItem): {
         // Fallback remains category-placeholder
       }
     }
-  }, [place.id, place.googlePlaceId, place.customImage, place.category]);
+  }, [place.id, place.googlePlaceId, place.customImage, place.category, place.placeVerificationStatus]);
 
   const onImageError = () => {
     // Graceful error recovery: immediately switch to category placeholder

@@ -205,7 +205,7 @@ export default function PlaceDetailModal({
           <div className="grid grid-cols-3 gap-2 text-center text-xs">
             <div className="p-2.5 rounded-xl bg-slate-50 border border-slate-200/80">
               <span className="text-[11px] text-slate-500 block mb-0.5">Google 평점</span>
-              {place.googleRating ? (
+              {place.placeVerificationStatus === 'verified' && place.googleRating ? (
                 <div className="font-extrabold text-slate-900 flex items-center justify-center space-x-0.5">
                   <Star className="w-3.5 h-3.5 text-amber-400 fill-amber-400" />
                   <span>{place.googleRating.toFixed(1)}</span>
@@ -359,19 +359,15 @@ export default function PlaceDetailModal({
               <span>{place.address}</span>
             </div>
 
-            {place.openingHours && (
-              <div className="flex items-center space-x-2">
-                <Clock className="w-3.5 h-3.5 text-slate-400 shrink-0" />
-                <span>영업시간: {place.openingHours}</span>
-              </div>
-            )}
+            <div className="flex items-center space-x-2">
+              <Clock className="w-3.5 h-3.5 text-slate-400 shrink-0" />
+              <span>영업시간: {place.openingHours || '정보 확인 필요'}</span>
+            </div>
 
-            {place.phone && place.phone !== '정보 확인 필요' && (
-              <div className="flex items-center space-x-2">
-                <Phone className="w-3.5 h-3.5 text-slate-400 shrink-0" />
-                <span>전화: {place.phone}</span>
-              </div>
-            )}
+            <div className="flex items-center space-x-2">
+              <Phone className="w-3.5 h-3.5 text-slate-400 shrink-0" />
+              <span>전화: {place.phone || '정보 확인 필요'}</span>
+            </div>
           </div>
         </div>
 

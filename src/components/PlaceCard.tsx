@@ -123,7 +123,7 @@ export default function PlaceCard({
         {/* Card Footer: Rating & Kids Suitability */}
         <div className="pt-1 flex items-center justify-between text-xs text-slate-500 border-t border-slate-100">
           <div className="flex items-center space-x-1">
-            {place.googleRating ? (
+            {place.placeVerificationStatus === 'verified' && place.googleRating ? (
               <>
                 <Star className="w-3.5 h-3.5 text-amber-400 fill-amber-400" />
                 <span className="font-bold text-slate-800">{place.googleRating.toFixed(1)}</span>
@@ -132,7 +132,7 @@ export default function PlaceCard({
                 </span>
               </>
             ) : (
-              <span className="text-[11px] text-slate-400">Google 정보 확인 필요</span>
+              <span className="text-[11px] text-slate-400 font-medium">정보 확인 필요</span>
             )}
           </div>
 
