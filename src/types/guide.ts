@@ -68,6 +68,8 @@ export interface ShowDetails {
   reservationTip: string;
 }
 
+export type PhotoSource = 'custom' | 'google' | 'category-placeholder';
+
 export interface PlaceItem {
   id: string;
   nameKo: string;
@@ -97,7 +99,9 @@ export interface PlaceItem {
   recommendedMenu?: string[];
   highlights: string[];
   badges: GitcBadge[];
-  imageUrl: string;
+  imageUrl?: string;
+  customImage?: string;
+  photoSource?: PhotoSource;
   
   // Real Google Maps / Places attributes
   googleRating?: number; // Real rating if verified, undefined if needs review

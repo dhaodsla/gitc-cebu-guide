@@ -7,6 +7,7 @@ import { PlaceItem, OriginId } from '../types/guide';
 import { ORIGINS } from '../data/originsData';
 import { getTravelFromOrigin } from '../utils/distance';
 import GitcBadge from './GitcBadge';
+import PlacePhoto from './PlacePhoto';
 import { Star, Heart, Navigation, Users, Clock, Sparkles } from 'lucide-react';
 
 interface PlaceCardProps {
@@ -33,17 +34,12 @@ export default function PlaceCard({
       className="group bg-white rounded-2xl border border-slate-200/90 shadow-sm hover:shadow-md transition-all duration-200 overflow-hidden cursor-pointer flex flex-col active:scale-[0.99]"
     >
       {/* Card Image Banner */}
-      <div className="relative aspect-[16/10] sm:aspect-[16/9] w-full bg-slate-100 overflow-hidden">
-        <img
-          src={place.imageUrl}
+      <div className="relative aspect-[16/10] sm:aspect-[16/9] w-full bg-slate-900 overflow-hidden">
+        <PlacePhoto
+          place={place}
           alt={place.nameKo}
-          loading="lazy"
           className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-          onError={(e) => {
-            // Graceful fallback image
-            (e.target as HTMLImageElement).src =
-              'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80';
-          }}
+          showSourceBadge={false}
         />
 
         {/* Top Floating Badges */}

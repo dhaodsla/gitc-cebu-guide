@@ -7,6 +7,7 @@ import { useState } from 'react';
 import { PlaceItem, OriginId } from '../types/guide';
 import { ORIGINS } from '../data/originsData';
 import { getTravelFromOrigin } from '../utils/distance';
+import PlacePhoto from '../components/PlacePhoto';
 import {
   ShieldAlert,
   Phone,
@@ -206,14 +207,14 @@ export default function EmergencyView({
               onClick={() => onSelectPlace(place)}
               className="bg-white rounded-2xl border border-slate-200/90 shadow-sm hover:shadow-md transition-all p-4 cursor-pointer flex flex-col sm:flex-row gap-3.5 group active:scale-[0.99]"
             >
-              <div className="relative w-full sm:w-28 aspect-[16/10] sm:aspect-square rounded-xl overflow-hidden shrink-0 bg-slate-100">
-                <img
-                  src={place.imageUrl}
+              <div className="relative w-full sm:w-28 aspect-[16/10] sm:aspect-square rounded-xl overflow-hidden shrink-0 bg-slate-900">
+                <PlacePhoto
+                  place={place}
                   alt={place.nameKo}
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform"
                 />
                 {place.isEmergency24hr && (
-                  <span className="absolute top-2 left-2 px-1.5 py-0.5 rounded bg-rose-600 text-white text-[9px] font-black">
+                  <span className="absolute top-2 left-2 px-1.5 py-0.5 rounded bg-rose-600 text-white text-[9px] font-black z-10">
                     24H 응급
                   </span>
                 )}

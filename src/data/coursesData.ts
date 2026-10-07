@@ -4,6 +4,8 @@
  */
 
 import { RecommendedCourse } from '../types/guide';
+import { PRE_RESOLVED_GOOGLE_PHOTOS } from './googlePlacePhotos';
+import { getCategoryPlaceholder } from '../utils/categoryPlaceholders';
 
 export const COURSES_DATA: RecommendedCourse[] = [
   {
@@ -15,7 +17,7 @@ export const COURSES_DATA: RecommendedCourse[] = [
     recommendedStartTime: '오전 09:30 (성당과 요새가 덜 붐비는 시간)',
     kidsFriendlySummary: '초등학생·중학생 역사 교육에 최고 (평지 이동, 관람시간 적당)',
     theme: '역사·문화·교육',
-    coverImage: 'https://images.unsplash.com/photo-1548013146-72479768bada?auto=format&fit=crop&w=800&q=80',
+    coverImage: PRE_RESOLVED_GOOGLE_PHOTOS['ChIJp45-1uObqTMRKiyk55UEjGY'] || getCategoryPlaceholder('history'),
     stops: [
       {
         placeId: 'magellans-cross',
@@ -63,7 +65,7 @@ export const COURSES_DATA: RecommendedCourse[] = [
     recommendedStartTime: '오후 14:30 출발 (일몰과 야경까지 연결)',
     kidsFriendlySummary: '전 연령 추천 (탁 트인 자연, 넓은 광장, 화사한 포토존)',
     theme: '전망·자연·포토스팟',
-    coverImage: 'https://images.unsplash.com/photo-1519501025264-65ba15a82390?auto=format&fit=crop&w=800&q=80',
+    coverImage: PRE_RESOLVED_GOOGLE_PHOTOS['ChIJAeJQylufqTMRoYHzWBE4lzM'] || getCategoryPlaceholder('sightseeing'),
     stops: [
       {
         placeId: 'sirao-garden',
@@ -97,7 +99,7 @@ export const COURSES_DATA: RecommendedCourse[] = [
     recommendedStartTime: '오후 16:30 출발 (선선해지는 골든 아워)',
     kidsFriendlySummary: '가족 모두 만족 (이동거리 3km 내외, 아이 피로도 제로)',
     theme: '가족외식·쇼핑·산책',
-    coverImage: 'https://images.unsplash.com/photo-1519567241046-7f570eee3ce6?auto=format&fit=crop&w=800&q=80',
+    coverImage: PRE_RESOLVED_GOOGLE_PHOTOS['ChIJ3xcIQNCXqTMR5QCimnAfri4'] || getCategoryPlaceholder('sightseeing'),
     stops: [
       {
         placeId: 'lg-garden-walk',
@@ -131,7 +133,7 @@ export const COURSES_DATA: RecommendedCourse[] = [
     recommendedStartTime: '오전 11:30 또는 오후 17:30',
     kidsFriendlySummary: '아이들이 좋아하는 달콤 짭조름한 바비큐와 부드러운 고기 요리 중심',
     theme: '현지미식·전통음식·디저트',
-    coverImage: 'https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=800&q=80',
+    coverImage: PRE_RESOLVED_GOOGLE_PHOTOS['ChIJN_ykxTiZqTMRZ59ExS6Cur4'] || getCategoryPlaceholder('local_food'),
     stops: [
       {
         placeId: 'house-of-lechon',
@@ -165,7 +167,7 @@ export const COURSES_DATA: RecommendedCourse[] = [
     recommendedStartTime: '오전 09:00 마리바고/푼타잉가뇨 선착장 출발',
     kidsFriendlySummary: '초등·중학생 인기 1위 (구명조끼 완비, 보트맨 전담 케어)',
     theme: '해양액티비티·스노클링·섬투어',
-    coverImage: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80',
+    coverImage: PRE_RESOLVED_GOOGLE_PHOTOS['ChIJ2VjnwbSPqDMR3Ptb0orj6fg'] || getCategoryPlaceholder('sightseeing'),
     stops: [
       {
         placeId: 'nalusuan-island',

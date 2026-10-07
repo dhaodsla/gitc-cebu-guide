@@ -6,6 +6,7 @@
 import { PlaceItem, OriginId } from '../types/guide';
 import { getPlaceTravelInfo, getGoogleMapsDirectionsUrl } from '../utils/distance';
 import GitcBadge from './GitcBadge';
+import PlacePhoto from './PlacePhoto';
 import {
   X,
   Star,
@@ -58,15 +59,13 @@ export default function PlaceDetailModal({
       {/* Modal Dialog Body */}
       <div className="relative w-full sm:max-w-xl max-h-[90vh] sm:max-h-[85vh] bg-white rounded-t-3xl sm:rounded-3xl shadow-2xl flex flex-col overflow-hidden z-10 animate-slideUp">
         {/* Modal Header Bar with Close Button */}
-        <div className="relative aspect-[16/9] w-full bg-slate-100 shrink-0 overflow-hidden">
-          <img
-            src={place.imageUrl}
+        <div className="relative aspect-[16/9] w-full bg-slate-900 shrink-0 overflow-hidden">
+          <PlacePhoto
+            place={place}
             alt={place.nameKo}
             className="w-full h-full object-cover"
-            onError={(e) => {
-              (e.target as HTMLImageElement).src =
-                'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80';
-            }}
+            loading="eager"
+            showSourceBadge={true}
           />
           <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-slate-950/40" />
 

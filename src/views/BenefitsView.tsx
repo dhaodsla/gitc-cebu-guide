@@ -7,6 +7,7 @@ import { useState } from 'react';
 import { PlaceItem, OriginId } from '../types/guide';
 import { ORIGINS } from '../data/originsData';
 import { getTravelFromOrigin } from '../utils/distance';
+import PlacePhoto from '../components/PlacePhoto';
 import {
   Ticket,
   Sparkles,
@@ -118,13 +119,13 @@ export default function BenefitsView({
               className="bg-white rounded-2xl border border-slate-200/90 shadow-sm hover:shadow-md transition-all p-4 cursor-pointer flex flex-col sm:flex-row gap-3.5 active:scale-[0.99] group"
             >
               {/* Image thumbnail */}
-              <div className="relative w-full sm:w-36 aspect-[16/10] sm:aspect-square rounded-xl overflow-hidden shrink-0 bg-slate-100">
-                <img
-                  src={place.imageUrl}
+              <div className="relative w-full sm:w-36 aspect-[16/10] sm:aspect-square rounded-xl overflow-hidden shrink-0 bg-slate-900">
+                <PlacePhoto
+                  place={place}
                   alt={place.nameKo}
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform"
                 />
-                <div className="absolute top-2 left-2 px-2 py-0.5 rounded-md bg-amber-500 text-white text-[10px] font-black shadow-xs">
+                <div className="absolute top-2 left-2 px-2 py-0.5 rounded-md bg-amber-500 text-white text-[10px] font-black shadow-xs z-10">
                   {benefit.discountValue}
                 </div>
               </div>

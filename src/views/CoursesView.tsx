@@ -7,6 +7,7 @@ import { useState } from 'react';
 import { RecommendedCourse, PlaceItem, OriginId } from '../types/guide';
 import { COURSES_DATA } from '../data/coursesData';
 import { ORIGINS } from '../data/originsData';
+import { getCategoryPlaceholder } from '../utils/categoryPlaceholders';
 import {
   Route,
   Clock,
@@ -103,6 +104,9 @@ export default function CoursesView({
                     src={course.coverImage}
                     alt={course.titleKo}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                    onError={(e) => {
+                      (e.target as HTMLImageElement).src = getCategoryPlaceholder('sightseeing');
+                    }}
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-slate-950/30 to-transparent" />
 

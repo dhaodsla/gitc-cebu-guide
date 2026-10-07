@@ -8,6 +8,7 @@ import { PlaceItem, OriginId, CategoryKey } from '../types/guide';
 import { ORIGINS } from '../data/originsData';
 import { getTravelFromOrigin } from '../utils/distance';
 import GitcBadge from '../components/GitcBadge';
+import PlacePhoto from '../components/PlacePhoto';
 import {
   APIProvider,
   Map,
@@ -271,18 +272,14 @@ export default function MapView({
         <div className="absolute bottom-20 inset-x-3 z-30 animate-slideUp">
           <div className="bg-white/98 backdrop-blur-md rounded-2xl shadow-2xl border border-slate-200 p-3.5 flex items-center space-x-3.5">
             {/* Thumbnail */}
-            <div className="relative w-20 h-20 rounded-xl overflow-hidden shrink-0 bg-slate-100">
-              <img
-                src={selectedPlace.imageUrl}
+            <div className="relative w-20 h-20 rounded-xl overflow-hidden shrink-0 bg-slate-900">
+              <PlacePhoto
+                place={selectedPlace}
                 alt={selectedPlace.nameKo}
                 className="w-full h-full object-cover"
-                onError={(e) => {
-                  (e.target as HTMLImageElement).src =
-                    'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80';
-                }}
               />
               {selectedPlace.badges.includes('GITC_PARTNER') && (
-                <div className="absolute top-0 inset-x-0 bg-amber-500 text-white text-[9px] font-extrabold text-center py-0.5">
+                <div className="absolute top-0 inset-x-0 bg-amber-500 text-white text-[9px] font-extrabold text-center py-0.5 z-10">
                   🎟 제휴
                 </div>
               )}
